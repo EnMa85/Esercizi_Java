@@ -1,0 +1,12 @@
+.metadata/
+.settings/
+bin/
+tmp/
+.build/
+.META-INF/
+.project
+.config
+.class
+.classpath
+Servers/
+/build/
