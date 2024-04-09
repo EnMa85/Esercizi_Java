@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Inserisci dipendente</title>
+	<link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+	<h3>Inserisci nuovo dipendente</h3>
+	
+	<div class="main">
+		
+			<form action="inserisciDipendente" method ="post">
+					<span>
+						<label for="nome">Nome</label>
+						<input type="text" id="nome" name="nome">
+					</span>
+		
+					<span>
+						<label for="cognome">Cognome</label>
+						<input type="text" id="cognome" name="cognome">
+					</span>
+		
+					<span>
+						<label for="mansione">Mansione</label>
+						<input type="text" id="mansione" name="mansione">
+					</span>
+		
+					<span>
+						<label for="stipendio">Stipendio</label>
+						<input type="number" id="stipendio" name="stipendio">
+					</span>
+
+			<input class="button" type="submit" value="Inserisci">
+		</form>
+		
+		<div>
+			<p th:text="${conferma}"></p>
+		</div>
+		
+		
+		<a href="stampaDipendenti">Visualizza elenco dipendenti</a>
+	
+	</div>
+	
+</body>
+</html>

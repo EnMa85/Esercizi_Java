@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!--  Inseriamo qui il dato da variare, che associeremo all'index selezionato -->
+			<p>Seleziona un dipendente per effettuare modifiche.</p>
+			<br>
+			<span>
+				<label for="nuovoStipendio">Nuovo stipendio: </label>
+				<input type="number" id="nuovoStipendio" name="nuovoStipendio">
+				<input class="button" type="submit" value="Varia stipendio">
+			</span>
+			<br>
+			<span>
+				<label for="nuovaMansione">Nuova mansione: </label>
+				<input type="text" id="nuovaMansione" name="nuovaMansione">
+				<input class="button" type="submit" value="Varia mansione">
+			</span>
+			<br>
+			<span>
+				<label>Rimuovi dipendente selezionato: </label>
+				<input class="button" type="submit" value="Elimina">
+			</span>
+		</form>
+	</div>
+	
+	<div>
+		<p th:text="${conferma}"></p>
+	</div>
+
+	<a href="stampaDipendenti">Torna all'elenco dipendenti</a>
+	<a href="inserisciDipendente">Inserisci nuovo dipendente</a>
+
+</body>
+</html>

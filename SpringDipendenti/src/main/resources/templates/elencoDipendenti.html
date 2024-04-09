@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Elenco dipendenti</title>
+	<link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+	<h3>Elenco dipendenti</h3>
+	
+	<div class="main">
+		<form action="selezionaDipendente" method ="post">
+			<table>
+				<tr>
+					<th>N.</th>
+					<th>Cognome</th>
+					<th>Nome</th>
+					<th>Mansione</th>
+					<th>Stipendio</th>	
+					<th>Seleziona</th>				
+				</tr>
+				
+				<!--  iterStat serve a numerare le iterazioni per stampare un conteggio -->
+		        <tr th:each="item, iterStat : ${ lista }">
+		        
+		            <td th:text="${ iterStat.index + 1 }"></td>
+	                <td th:text="${ item.cognome }"></td>
+		            <td th:text="${ item.nome }"></td>
+		            <td th:text="${ item.mansione }"></td>
+					<td th:text="${ #numbers.formatInteger(item.stipendio, 3, 'POINT') }"></td>
+					
+							          
+		            <!-- L'input radio fa selezionare una sola riga in tutto il form, a questa riga sarà passato l'id dipendente -->
+		            <td><input type="radio" name="selId" th:value="${ item.id }" required></td>
+		        </tr>
+			</table>
+			<input class="button" type="submit" value="Seleziona dipendente">
+		</form>
+		
+		<!--  Se è stato selezionato un dipendente, stampa la selezione e visualizza i pulsanti di variazione -->
+		<div th:if="${not #strings.isEmpty(dipendente)}">
+			<hr>
+			<p> Dipendente selezionato: </p>
+			<p th:text="${ dipendente }"></p>
+			
+			<form th:action="@{/eseguiOperazione}" method="post">
+		        <select id="operazione" name="operazione" required>
+		        	<option value="">Seleziona un'operazione</option>
+		            <option value="variaStipendio">Varia stipendio</option>
+		            <option value="variaMansione">Varia mansione</option>
+		            <option value="eliminaDipendente">Elimina dipendente</option>
+		        </select>
+		        
+		        <div id="variaStipendio" style="display: none;">
+		            <label for="stipendio">Inserisci nuovo stipendio:</label>
+		            <input type="number" id="stipendio" name="stipendio">
+		        </div>
+		        
+		        <div id="variaMansione" style="display: none;">
+		            <label for="mansione">Inserisci nuova mansione:</label>
+		            <input type="text" id="mansione" name="mansione">
+		        </div>
+		        <input type="hidden" name="selId" th:value="${ id }">
+		        <input class="button" type="submit" value="Conferma operazione">
+		    </form>
+			
+		</div>
+		
+		<script>
+		    document.getElementById("operazione").addEventListener("change", function() {
+		        var operazione = this.value;
+		        document.getElementById("variaStipendio").style.display = operazione === "variaStipendio" ? "block" : "none";
+		        document.getElementById("variaMansione").style.display = operazione === "variaMansione" ? "block" : "none";
+		    });
+		</script>
+
+		<a href="stampaDipendenti">Torna all'elenco dipendenti</a>
+		<a href="inserisciDipendente">Inserisci nuovo dipendente</a>
+</body>
+</html>
