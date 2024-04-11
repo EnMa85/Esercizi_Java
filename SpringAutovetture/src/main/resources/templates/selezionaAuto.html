@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Selezione autovettura</title>
+	<link rel="stylesheet" th:href="@{style.css}">
+</head>
+
+<body>
+
+	<h3>Inserisci prenotazione autovettura</h1>
+	
+	
+	<form action="selezionaAuto" method ="post">
+	
+		<span>
+			<label for="nome">Scegli tipo di auto: </label>
+			
+			<select name="nome">
+				<option value="Fiat">Fiat</option>
+				<option value="Toyota">Toyota</option>
+				<option value="Peugeot">Peugeot</option>
+			</select>
+		</span>
+		
+		<span>
+			<label for="colore">Scegli il colore: </label>
+		
+			<select name="colore">
+				 <option value="bianco">bianco</option>
+				 <option value="nero">nero</option>
+				 <option value="rosso">rosso</option>
+			</select>
+		</span>
+		
+		<input class="button" type="submit" value="Invia">
+	</form>
+		
+	<div>
+		<p th:text="${ selezione }"></p>
+	</div>
+	
+	<div class="footer">
+		<a class="button" href="\">Torna alla home</a>
+	</div>
+	
+</body>
+</html>

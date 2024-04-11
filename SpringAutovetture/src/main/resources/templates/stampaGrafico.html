@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Stampa grafici</title>
+	<link rel="stylesheet" th:href="@{style.css}">
+</head>
+
+<body>
+	
+	<h3>Stampa grafici</h3>
+	
+	<div class="flexCenter">
+	
+		<div class="flexVert">
+			<p>Analisi per modello</p>
+			
+			<table th:if="${ conteggioAuto != null }">
+				<tr>
+					<th>Auto</th>
+					<th>Conteggio</th>			
+				</tr>
+		        <tr th:each="item : ${ conteggioAuto }">      
+		            <td th:text="${ item.key }"></td>
+		            <td th:text="${ item.value }"></td>							          
+		        </tr>
+			</table>
+			
+			<span>
+				<a class="button" href="/stampaGrafico?grafico=autoTorta.png">Grafico a torta</a>
+				<a class="button" href="/stampaGrafico?grafico=autoBarre.png">Grafico a barre</a>			
+			</span>
+		</div>
+		
+		<div class="flexVert">
+			<p>Analisi per colore</p>
+			
+			<table th:if="${ conteggioColori != null }">
+				<tr>
+					<th>Colore</th>
+					<th>Conteggio</th>			
+				</tr>
+		        <tr th:each="item : ${ conteggioColori }">      
+		            <td th:text="${ item.key }"></td>
+		            <td th:text="${ item.value }"></td>							          
+		        </tr>
+			</table>
+			
+			<span>
+				<a class="button" href="/stampaGrafico?grafico=coloreTorta.png">Grafico a torta</a>
+				<a class="button" href="/stampaGrafico?grafico=coloreBarre.png">Grafico a barre</a>	
+			</span>
+		</div>
+		
+	</div>
+
+	<!--  Stampa del grafico selezionato -->
+	<div class="flexCenter" th:if="${ nomeGrafico != null }">
+	    <img id="grafico" th:src="@{${ nomeGrafico }}" alt="Grafico" />
+	</div>
+
+    
+	<div class="footer">
+		<a class="button" href="\">Torna alla home</a>
+		<a class="button" href="paginaGrafici">Torna alle statistiche</a>	
+	</div>
+	
+</body>
+</html>

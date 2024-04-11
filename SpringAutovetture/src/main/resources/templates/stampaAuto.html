@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Elenco autovetture</title>
+	<link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+
+	<h3>Elenco autovetture</h3>
+	
+	<div>
+
+		<table>
+			<tr>
+				<th>N.</th>
+				<th>Nome</th>
+				<th>Colore</th>			
+			</tr>
+			
+			<!--  iterStat serve a numerare le iterazioni per stampare un conteggio -->
+	        <tr th:each="item, iterStat : ${ lista }">
+	        
+	            <td th:text="${ iterStat.index + 1 }"></td>
+	            <td th:text="${ item.nome }"></td>
+	            <td th:text="${ item.colore }"></td>
+											          
+	        </tr>
+		</table>
+		
+	</div>
+
+	
+	<div class="footer">
+		<a class="button" href="\">Torna alla home</a>
+		<a class="button" href="paginaGrafici">Area statistiche</a>
+	</div>
+	
+</body>
+</html>
