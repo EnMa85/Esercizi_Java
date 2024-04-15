@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -48,14 +49,17 @@ public class MyController {
 	
 	// Pulsante che rimanda alla pagina di selezione
 	@GetMapping("/selezionaAuto")
-	public String getSelezionaAuto() {
+	public String getSelezionaAuto( Model model ) {
+		List<String> modelli = autoJDBC.modelli();
+		model.addAttribute("modelli", modelli);
+		
 		return "selezionaAuto";
 	}
 	
 	
 	// Richiesta post, una volta inviato il form di inserimento auto
     @PostMapping("/selezionaAuto")
-    public String selezionaAuto( @RequestParam("nome") String nome, @RequestParam("colore") String colore, Model model ) {
+    public String selezionaAuto( @RequestParam("nome") String nome, @RequestParam("colore") String colore, RedirectAttributes redirectAttributes) {
 	     	
     	// Eseguiamo la query
     	autoJDBC.insertAuto(nome, colore);
@@ -65,11 +69,11 @@ public class MyController {
 		auto.setNome(nome);
 		auto.setColore(colore);
 
-		// e lo settiamo nel model
-    	model.addAttribute("selezione", "La tua selezione: " + auto.toString());
+		// e lo settiamo nel flash attribute e non model (in quanto il model perderebbe i dati nel redirect
+		redirectAttributes.addFlashAttribute("selezione", "La tua selezione: " + auto.toString());
     	
     	// Restituiamo la stessa pagina, che stamperà la conferma sotto il form
-    	return("selezionaAuto");
+    	return "redirect:/selezionaAuto";
     }
     
     
@@ -111,10 +115,10 @@ public class MyController {
 		    // Generiamo tutti i grafici e settiamo nel model l'immagine e la descrizione del grafico
 		    
 		    // Creazione grafici
-			Grafici.generaGraficoBarre(nomi, contNomi, "auto", "autoBarre", "Statistiche per auto - Grafico a barre");
-			Grafici.generaGraficoBarre(colori, contColori, "colore", "coloreBarre", "Statistiche per colore - Grafico a barre");
-			Grafici.generaGraficoTorta(conteggioAuto, "autoTorta", "Statistiche per auto - Grafico a torta");
-			Grafici.generaGraficoTorta(conteggioColori, "coloreTorta", "Statistiche per colore - Grafico a torta");
+			Grafici.generaGraficoBarre(nomi, contNomi, "autoBarre", "Statistiche per modello");
+			Grafici.generaGraficoBarre(colori, contColori, "coloreBarre", "Statistiche per colore");
+			Grafici.generaGraficoTorta(conteggioAuto, "autoTorta", "Statistiche per modello");
+			Grafici.generaGraficoTorta(conteggioColori, "coloreTorta", "Statistiche per colore");
 			
 			
 			// Passaggio dei grafici al model (per precaricarli nella cache

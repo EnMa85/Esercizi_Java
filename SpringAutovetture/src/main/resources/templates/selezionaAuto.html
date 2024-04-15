@@ -9,41 +9,47 @@
 
 <body>
 
-	<h3>Inserisci prenotazione autovettura</h1>
+	<div class="flexVert">
 	
+		<h3>Inserisci prenotazione autovettura</h3>
 	
-	<form action="selezionaAuto" method ="post">
-	
-		<span>
-			<label for="nome">Scegli tipo di auto: </label>
+		<form id="seleziona" action="selezionaAuto" method ="post">
+		
+			<span>
+				<label for="nome">Scegli tipo di auto: </label>
+				
+				<select name="nome">
+					<option value="" selected disabled>Seleziona</option>
+					<option th:each="modello : ${ modelli }" th:text="${ modello }"></option>
+				</select>
+			</span>
 			
-			<select name="nome">
-				<option value="Fiat">Fiat</option>
-				<option value="Toyota">Toyota</option>
-				<option value="Peugeot">Peugeot</option>
-			</select>
-		</span>
+			<span>
+				<label for="colore">Scegli il colore: </label>
+			
+				<select name="colore">
+				 	 <option value="" selected disabled>Seleziona</option>
+					 <option value="bianco">Bianco</option>
+					 <option value="rosso">Rosso</option>
+					 <option value="marrone">Marrone</option>
+					 <option value="rosa">Rosa</option>
+				</select>
+			</span>
+			
+			<input class="button" type="submit" value="Invia">
+		</form>
+
+		<div>
+			<p th:text="${ selezione }"></p>
+		</div>
 		
-		<span>
-			<label for="colore">Scegli il colore: </label>
-		
-			<select name="colore">
-				 <option value="bianco">bianco</option>
-				 <option value="nero">nero</option>
-				 <option value="rosso">rosso</option>
-			</select>
-		</span>
-		
-		<input class="button" type="submit" value="Invia">
-	</form>
-		
-	<div>
-		<p th:text="${ selezione }"></p>
 	</div>
 	
 	<div class="footer">
 		<a class="button" href="\">Torna alla home</a>
 	</div>
+		
+
 	
 </body>
 </html>

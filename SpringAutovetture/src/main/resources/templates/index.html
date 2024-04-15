@@ -11,11 +11,25 @@
 
 	<h1>Concessionaria Talentform</h1>
 		
+	<h4>Le nostre stelle</h4>
 	<div class="carosello">
         <div class="in-carosello">
-            <div class="carosello-img"><img id="paperino" th:src="@{ 313.png }" alt="313 Paperino"></div>
-            <div class="carosello-img"><img id="homer" th:src="@{ homer.png }" alt="auto Simpson"></div>
-            <div class="carosello-img"><img id="flintstones" th:src="@{ flintstones.png }" alt="auto Flintstones"></div>
+            <div class="carosello-img">
+            	<img id="paperino" th:src="@{ 313.png }" alt="313 Paperino">
+            	<p>La nostra spider rossa monoposto</p>
+            </div>
+            <div class="carosello-img">
+            	<img id="homer" th:src="@{ homer.png }" alt="auto Simpson">
+            	<p>Non necessita di antifurto</p>
+            </div>
+            <div class="carosello-img">
+            	<img id="flintstones" th:src="@{ flintstones.png }" alt="auto Flintstones">
+            	<p>Trazione plantare per zero emissioni CO2</p>
+            </div>
+            <div class="carosello-img">
+            	<img id="fantozzi" th:src="@{ bianchina.png }" alt="Bianchina Fantozzi">
+            	<p>Autolavaggio incluso</p>
+            </div>
         </div>
         <div class="prev">&#10094;</div>
         <div class="next">&#10095;</div>
@@ -55,7 +69,7 @@
         
         setInterval(() => {
             moveToIndex(currentIndex + 1);
-        }, 2000);
+        }, 5000);
     </script>
 	
 </body>
