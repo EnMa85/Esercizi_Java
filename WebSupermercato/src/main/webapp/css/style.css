@@ -1,37 +1,44 @@
 @charset "UTF-8";
 /*----- generics ----------------------------------------*/
 html {
-    font-size: 5px;
+	font-size: 5px;
 }
+
 * {
 	box-sizing: border-box;
 	font-family: Verdana, sans-serif;
 }
+
 body {
-    margin: 0;
-    text-align: center;
-    font-size: 1.3vw;
+	margin: 0;
+	text-align: center;
+	font-size: 1.3vw;
 }
+
 h4 {
 	font-size: 1.2vw;
 	font-weight: 500;
 }
+
 .flexOr {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
-    margin: 0 3%;
+	margin: 0 3%;
 }
+
 .flexVer {
-    display: flex;
+	display: flex;
 	flex-direction: column;
-    align-items: center;
+	align-items: center;
 }
+
 .title {
-    background-color: rgba(240, 255, 240, 0.563);
-    margin: 0 0 2%;
-    padding: 1px;
+	background-color: rgba(240, 255, 240, 0.563);
+	margin: 0 0 2%;
+	padding: 1px;
 }
+
 #footer {
 	position: fixed;
 	bottom: 0;
@@ -41,12 +48,14 @@ h4 {
 	margin: 0;
 	background-color: white;
 }
+
 a#footer {
 	background-color: transparent;
 	left: 42vw;
 	font-size: 0.9vw;
 	color: black;
 }
+
 .button#back {
 	width: 10vw;
 	margin: auto 1%;
@@ -56,97 +65,109 @@ a#footer {
 /*-- forms------------------------------------------------*/
 form {
 	width: fit-content;
-    font-size: 1.1vw;
+	font-size: 1.1vw;
 }
+
 label {
-    border-radius: 5px 5px;
+	border-radius: 5px 5px;
 	width: fit-content;
-    height: auto;
+	height: auto;
 	padding: 1%;
-    text-align: justify;
+	text-align: justify;
 }
+
 input {
-    border-radius: 5px 5px;
+	border-radius: 5px 5px;
 	width: 10vw;
-    height: auto;
+	height: auto;
 	padding: 1%;
-    text-align: center;
-    font-size: 1.2vw;
+	text-align: center;
+	font-size: 1.2vw;
 }
+
 input.number {
 	width: 3vw;
 	height: 3vh;
 	margin: auto;
 }
+
 checkbox {
 	width: 3vw;
 	height: 3vh;
 }
+
 .button {
-    width: 8vw;
-    min-width: fit-content;
-    height: fit-content;
-    padding: 1% 2%;
-    margin: auto;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: rgba(240, 255, 240, 0.748);
-    text-align: center;
-    font-size: 1.2vw;
+	width: 8vw;
+	min-width: fit-content;
+	height: fit-content;
+	padding: 1% 2%;
+	margin: auto;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: rgba(240, 255, 240, 0.748);
+	text-align: center;
+	font-size: 1.2vw;
 }
 /*-- end forms -------------------------------------------*/
 
 /*-- index -----------------------------------------------*/
 .flexOr#index {
-    justify-content: space-between;
-    margin-top: -2.5%;
+	justify-content: space-between;
+	margin-top: -2.5%;
 }
+
 #index>form {
-    width: 30%;
-    padding: 1%;
-    border-radius: 40%;
-    background-color: rgba(255, 255, 255, 0.567);
+	width: 30%;
+	padding: 1%;
+	border-radius: 40%;
+	background-color: rgba(255, 255, 255, 0.567);
 }
 /*-- end index -------------------------------------------*/
 
 /*-- pagine prodotti -------------------------------------*/
 div#prod {
-    justify-items: space-between;
-    align-items: space-between;
+	justify-items: space-between;
+	align-items: space-between;
 }
+
 .flexOr#img {
-    justify-items: space-between;
-    align-items: space-between;
-    position: fixed;
-    bottom: 10%;
+	justify-items: space-between;
+	align-items: space-between;
+	position: fixed;
+	bottom: 10%;
 }
+
 ol, li {
 	width: max-content;
 	padding: 2%;
 }
+
 #storico>tr {
 	padding: 0;
 	margin: 0 auto;
 }
+
 #storico>td {
-    width: 12vw;
-    margin: 0 auto;
-    padding: 0;
-    border: none;
+	width: 12vw;
+	margin: 0 auto;
+	padding: 0;
+	border: none;
 }
+
 table#storico tr:not(:first-child) td:first-child {
 	text-align: justify;
 }
+
 div#storico {
 	border-bottom: 3px double black;
-	margin:5vh auto;
+	margin: 5vh auto;
 }
 /*-- end pagine prodotti ---------------------------------*/
 
 /*-- elenchi ---------------------------------------------*/
 div.table {
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 	justify-items: center;
 	justify-content: space-between;
 	align-items: center;
@@ -154,16 +175,19 @@ div.table {
 	font-size: 1.3vw;
 	font-weight: 400;
 }
-table{
+
+table {
 	margin: 3% auto;
 	border-collapse: collapse;
 	font-size: 1.3vw;
 	text-align: center;
 }
+
 th {
 	background-color: rgba(240, 255, 240, 0.748);
 	font-weight: 500;
 }
+
 td, th {
 	text-align: center;
 	min-width: 7vw;
